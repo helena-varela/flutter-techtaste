@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/UI/_core/app_colors.dart';
+import 'package:myapp/UI/home/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -16,45 +17,35 @@ class SplashScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 32.0,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 32.0,
-                      children: [
-                        Image.asset('assets/logo.png', width: 192),
-                        Center(
-                          child: Container(
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Um parceiro inovador para sua",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 22.0,
-                                  ),
-                                ),
-                                Text(
-                                  "melhor experiência culinária!",
-                                  style: TextStyle(
-                                    color: AppColors.mainColor,
-                                    fontSize: 22.0,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                  Image.asset('assets/logo.png', width: 192),
+                  Column(
+                    children: [
+                      Text(
+                        "Um parceiro inovador para sua",
+                        style: TextStyle(color: Colors.white, fontSize: 22.0),
+                      ),
+                      Text(
+                        "melhor experiência culinária!",
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w400,
                         ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text("Bora!"),
-                          ),
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      },
+                      child: Text("Bora!"),
                     ),
                   ),
                 ],
